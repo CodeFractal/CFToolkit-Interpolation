@@ -14,7 +14,7 @@ namespace CFToolkit.Interpolation
             configuration = configuration ?? Configuration.Default;
         }
 
-        public string Interpolate<T>(string source, IDictionary<string, T> withDictionary)
+        public string Interpolate<T>(string source, IReadOnlyDictionary<string, T> withDictionary)
         {
             if (source == null) return null;
             foreach (var match in regInterpolation.Matches(source).OfType<Match>().Reverse())
@@ -35,7 +35,7 @@ namespace CFToolkit.Interpolation
         public string Interpolate(string source, object withObject)
         {
             if (source == null) return null;
-            IDictionary<string, object> variables = withObject.GetType().GetProperties()
+            IReadOnlyDictionary<string, object> variables = withObject.GetType().GetProperties()
                 .ToDictionary(p => p.Name, p => p.GetValue(withObject));
             return Interpolate(source, withDictionary: variables);
         }

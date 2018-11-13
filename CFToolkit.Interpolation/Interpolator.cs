@@ -14,6 +14,24 @@ namespace CFToolkit.Interpolation
             configuration = configuration ?? Configuration.Default;
         }
 
+        public string Interpolate<T>(string source, IDictionary<string, T> withDictionary)
+        {
+            if (source == null) return null;
+            foreach (var match in regInterpolation.Matches(source).OfType<Match>().Reverse())
+            {
+                string varName = match.Groups[1].Value;
+
+                if (withDictionary.ContainsKey(varName))
+                {
+                    string format = match.Groups[3].Value;
+                    object varVal = withDictionary[varName];
+                    string formatted = varVal == null ? "" : Format(varVal, format);
+                    source = source.Remove(match.Index, match.Length).Insert(match.Index, formatted);
+                }
+            }
+            return source;
+        }
+
         public string Interpolate<T>(string source, IReadOnlyDictionary<string, T> withDictionary)
         {
             if (source == null) return null;

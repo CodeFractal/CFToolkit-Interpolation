@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>1.0.0-alpha-0</Version>
+    <Authors>CodeFractal</Authors>
+    <Company>CodeFractal</Company>
+    <Product>CFToolkit</Product>
+    <Description>A lightweight library for supporting dynamic formatted string interpolation.</Description>
+    <PackageProjectUrl>https://github.com/CodeFractal/CFToolkit-Interpolation</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/CodeFractal/CFToolkit-Interpolation.git</RepositoryUrl>
+    <PackageIconUrl>https://s.gravatar.com/avatar/2eb3e29d189c888aaa61ea70b49e66e4?s=256</PackageIconUrl>
+    <PackageTags />
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+</Project>
